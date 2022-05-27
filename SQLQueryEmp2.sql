@@ -44,16 +44,25 @@ select min(salary) as MaxSalary from Emp2
 --Write a query to display first_name and last_name using alias ‘First Name’ & ‘Last Name’ from employee table
 select firstName as FirstName, lastName as LastName from Emp2
 --Write a query to get unique department ID from employee table
-select distinct deptName from Emp2
+select * from Emp2
+order by Eid desc
 --Write a query to get all employee details from employee table display in descending order
-
+select Eid from Emp2 order by desc
 --Write a query to display employee details with salary, calculate the PF as 12 % of basic salary & display as separate column
+select firstname,lastname,salary,PFsalary=salary*0.12 from Emp2
 --Write a query to get total salaries payable to all employees from employee table
+select SUM(salary)as totalSalary from Emp2
 --Write a query to get max and min salary of employee
+select MAX(salary)as MAXsalary from Emp2
+select min (salary)as MINsalary from Emp2
 --Write a query to get number of employees are working in company
+select count (Eid)as TotalEmp from Emp2
 --Write a query to get the number of unique designation in the company
+select count (distinct dname) from Department
 --Write a query to display emp_name as ‘Name’ in upper case
+select UPPER(firstname)from Emp2
 --Write a query to get first 10 records from the employee table
+select top 10 * from Emp2
 
 
 alter table emp2 add magerid int
