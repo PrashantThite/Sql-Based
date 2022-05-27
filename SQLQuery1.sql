@@ -90,4 +90,60 @@ insert into person values(14,'Rohit',39,null)
 select * from person where country is null -- show the null elements
 select * from person where country is not null-- show the elements which is not null
 
+--group by clause
+
+ select * from person
+
+ select country, count(Pid) as PerosnCount from person
+ group by country
+
+ select age,count(Pid)as persons from person
+ group by age
+
+ 
+
+--Join Queries
+alter table orders add ProductName varchar(20)
+alter table orders add Price int
+
+insert into orders values(1,1001,1,'laptop',50000)
+insert into orders values(2,1002,1,'keyboard',50000)
+insert into orders values(3,1003,5,'mouse',50000)
+insert into orders values(4,1004,1,'T-shirt',50000)
+insert into orders values(5,1005,5,'laptop',50000)
+insert into orders values(6,1006,8,'Tv',50000)
+insert into orders values(7,1007,9,'Table',50000)
+
+--inner join
+select p.name,p.country,p.age,o.orderNo,o.ProductName,o.price
+from person p 
+inner join orders o on o.personId=p.Pid
+--left join
+select p.name,p.country,p.age,o.orderNo,o.ProductName,o.price
+from person p 
+left join orders o on o.personId=p.Pid
+--right join
+select p.name,p.country,p.age,o.orderNo,o.ProductName,o.price
+from person p 
+right join orders o on o.personId=p.Pid
+--full join
+select p.name,p.country,p.age,o.orderNo,o.ProductName,o.price
+from person p 
+full join orders o on o.personId=p.Pid
+
+--having clause
+select country,count(pid)from person
+group by country
+having count(pid) >5
+
+select country, count(pid) as personcount from person
+group by country
+having country in('india','germany')
+order by count(pid)
+
+
+
+select * from orders
+
 select * from person
+
